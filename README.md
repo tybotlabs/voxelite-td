@@ -27,4 +27,4 @@ Generate position and color data textures from an input TOP. Render an image/vid
 
 #### vox_trilinear
 
-Perform trilinear interpolation on position and color data textures in voxelized space, a blending strategly of "splitting fat points" vs. increasing point density.
+Perform trilinear interpolation on position and color data textures in voxelized space, a blending strategy of "splitting fat points" vs. increasing point density.
