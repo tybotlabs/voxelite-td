@@ -19,12 +19,6 @@ Main visualizer and output component.
 
 Blend point position and color data textures into an output texture representing Voxelite's renderable volume. This output is ready for feeding into _vox_out_.
 
-## In Progress
+#### vox_sensors
 
-#### vox_texture
-
-Generate position and color data textures from an input TOP. Render an image/video!
-
-#### vox_trilinear
-
-Perform trilinear interpolation on position and color data textures in voxelized space, a blending strategy of "splitting fat points" vs. increasing point density.
+Use the three interaction stations' button, rotary, and ranging sensors as inputs. See [sensors.md](vox_sensors/sensors.md) for more information.
