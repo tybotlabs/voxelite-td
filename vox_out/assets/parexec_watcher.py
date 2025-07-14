@@ -19,11 +19,11 @@ def onValueChange(par, prev):
         case '0':
             op('transform_quadrant').par.rotate = 0
         case '1':
-            op('transform_quadrant').par.rotate = 90
+            op('transform_quadrant').par.rotate = -90
         case '2':
-            op('transform_quadrant').par.rotate = 180
+            op('transform_quadrant').par.rotate = -180
         case '3':
-            op('transform_quadrant').par.rotate = 270
+            op('transform_quadrant').par.rotate = -270
 
     # build pixel table
     t = op('table_pixels')
@@ -52,17 +52,17 @@ def onValueChange(par, prev):
                     if x < 1 or x > 24:
                         show = 0
 
-                if parModule == '0' or parModule == '1':
+                if parModule == '0' or parModule == '3':
                     if z > 12.5:
                         show = 0
-                elif parModule == '2' or parModule == '3':
+                elif parModule == '2' or parModule == '1':
                     if z < 12.5:
                         show = 0
 
-                if parModule == '0' or parModule == '3':
+                if parModule == '0' or parModule == '1':
                     if x > 12.5:
                         show = 0
-                elif parModule == '1' or parModule == '2':
+                elif parModule == '3' or parModule == '2':
                     if x < 12.5:
                         show = 0
 
