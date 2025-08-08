@@ -1,13 +1,16 @@
 table = op('table_values')
-
+callbacks = op('udpin_sensors_callbacks').module
 
 def onValueChange(channel, sampleIndex, val, prev):
     channelName = channel.name
-    match(channelName[0]):
-        case 'a':  # button
-            table[channelName, 'value'] = int(val > 0)
-        case 'b':  # rotary
-            table[channelName, 'value'] = -(val - 64) / 128 * 360
-        case 'c':  # distance
-            table[channelName, 'value'] = val / 127
+    try:
+        match(channelName[0]):
+            case 'a':  # button
+                callbacks.updateSensor(channelName,  int(val > 0))
+            case 'b':  # rotary
+                callbacks.updateSensor(channelName, (val - 63) / 128)
+            case 'c':  # distance
+                callbacks.updateSensor(channelName, -1 if val == 127 else val / 126)
+    except Exception as e:
+        pass # ignore missing sensors
     return
