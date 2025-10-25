@@ -9,16 +9,16 @@ This component outputs a 9-channel CHOP with the interaction station sensor valu
 
 ## Station B: 3 rotary controls
 
-- float value representing accumulated degrees of clockwise rotation in 3.75 degree increments
+- float value representing accumulated clockwise rotations; using the _Loop_ or _Limit_ modes in _vox_sensors_mod_ keeps this value constrained
 - control rotates continuously and smoothly without any notching
 - control is not designed for high speed and cannot be spun with momentum
 
-## Station C: 2 ultrasonic range sensors facing skyward; 1 sensor TBD
+## Station C: 2 ultrasonic range sensors facing skyward
 
 - float value representing detected range
 - 0 = minimum range or less (< 3cm)
 - between 0 and 1 = proportional to detected range (3—60cm)
-- -1 = beyond maximum detectable range (> ~60cm)
+- -1 = beyond maximum detectable range (> ~60cm); this default value can be changed using _vox_sensors_mod_
 - only ~10hz update frequency
 
 # MIDI device
@@ -28,7 +28,3 @@ Use the `in_midi` input to connect your MIDI device. Internally the component wi
 # Connection to vox_out
 
 _vox_sensors_ can be connected to _vox_out_ for visualization purposes.
-
-# Normalizing Values
-
-_vox_sensors_mod_ can be used for common normalization of the sensor values: see the _Custom_ parameters tab. Note that _Common: Reload Custom Parameters_ should be **off** to avoid having your custom parameter changes reset when the TOX is reloaded.
